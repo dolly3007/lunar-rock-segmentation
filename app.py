@@ -2,9 +2,16 @@ import streamlit as st
 import numpy as np
 import cv2
 import tensorflow as tf
+import segmentation_models as sm
 
-# Load model
-model = tf.keras.models.load_model("my_model.h5", compile=False)
+# Define custom objects
+custom_objects = {
+    'iou_score': sm.metrics.IOUScore(threshold=0.5),
+    'categorical_crossentropy': tf.keras.losses.CategoricalCrossentropy()
+}
+
+# Load model with custom objects
+model = tf.keras.models.load_model("my_model.h5", custom_objects=custom_objects, compile=False)
 
 H, W = 480, 480
 CLASS_COLORS = np.array([

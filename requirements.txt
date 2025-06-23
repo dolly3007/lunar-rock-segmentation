@@ -1,8 +1,10 @@
 streamlit
 opencv-python-headless
 numpy
-tensorflow==2.12.0
-segmentation-models
+tensorflow==2.10.0
+keras==2.10.0
+segmentation-models==1.0.1
+classification-models==0.5.3
 efficientnet==1.1.1
 matplotlib
 Pillow

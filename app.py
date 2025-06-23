@@ -6,6 +6,7 @@ import segmentation_models as sm
 sm.set_framework('tf.keras')
 sm.framework()
 
+from segmentation_models import Unet
 # Define custom objects
 custom_objects = {
     'iou_score': sm.metrics.IOUScore(threshold=0.5),

@@ -2,12 +2,6 @@ tensorflow==2.9.3
 keras==2.9.0
 segmentation-models==1.0.1
 git+https://github.com/qubvel/classification_models.git@keras-2
-opencv-python-headless
+opencv-python
 numpy
 streamlit
-classification-models==0.5.3
-efficientnet==1.1.1
-matplotlib
-Pillow
-
-

@@ -3,6 +3,8 @@ import numpy as np
 import cv2
 import tensorflow as tf
 import segmentation_models as sm
+sm.set_framework('tf.keras')
+sm.framework()
 
 # Define custom objects
 custom_objects = {

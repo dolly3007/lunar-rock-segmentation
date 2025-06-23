@@ -3,3 +3,5 @@ opencv-python
 numpy
 tensorflow
 segmentation-models
+matplotlib
+Pillow

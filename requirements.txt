@@ -1,11 +1,14 @@
 streamlit
 opencv-python-headless
 numpy
-tensorflow==2.10.0
-keras==2.10.0
+tensorflow==2.9.3
+keras==2.9.0
 segmentation-models==1.0.1
+git+https://github.com/qubvel/classification_models.git@keras-2
 classification-models==0.5.3
 opencv-python-headless
 efficientnet==1.1.1
 matplotlib
 Pillow
+
+

@@ -1,10 +1,30 @@
-streamlit==1.19.0
+# Core dependencies
 tensorflow==2.10.1
-protobuf==3.19.6
-numpy==1.23.5
 keras==2.10.0
+numpy==1.23.5
 opencv-python-headless==4.9.0.80
+scikit-image==0.24.0
+pillow==11.2.1
+
+# Segmentation and classification models
 segmentation-models==0.2.1
 classification-models==0.2.0
 efficientnet==1.0.0
-altair==4.2.2
+
+# Visualization and streamlit
+streamlit==1.19.0
+matplotlib==3.7.4
+altair==4.2.2  # Use v4 to avoid error with altair.vegalite.v4
+pydeck==0.9.1
+
+# Others
+imageio==2.37.0
+tifffile==2025.5.10
+pandas==2.3.0
+scipy==1.15.3
+protobuf==3.19.6
+absl-py==2.3.0
+six==1.17.0
+python-dateutil==2.9.0.post0
+requests==2.32.4
+tqdm==4.66.4

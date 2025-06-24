@@ -6,16 +6,22 @@ import os
 
 # Set the segmentation models framework
 os.environ["SM_FRAMEWORK"] = "tf.keras"
+
 import segmentation_models as sm
-from segmentation_models import Unet  # ✅ Import before using
+from segmentation_models import Unet
 
-# Set the backend framework and get custom objects for model loading
 sm.set_framework("tf.keras")
-custom_objects = sm.get_custom_objects()  # ✅ Use this instead of Unet().custom_objects
 
+custom_objects = {
+    'categorical_crossentropy': tf.keras.losses.CategoricalCrossentropy(),
+    'iou_score': sm.metrics.IOUScore(threshold=0.5)
+}
 # Load the trained model
-model = tf.keras.models.load_model("my_model.h5", custom_objects=custom_objects, compile=False)
-
+try:
+    model = tf.keras.models.load_model("my_model.h5", custom_objects=custom_objects, compile=False)
+except Exception as e:
+    st.error(f"Failed to load model: {e}")
+    st.stop()
 # Constants
 H, W = 480, 480
 CLASS_COLORS = np.array([

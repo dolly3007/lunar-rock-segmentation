@@ -9,7 +9,9 @@ import keras
 # Set framework to match training environment
 os.environ["SM_FRAMEWORK"] = "tf.keras"
 sm.set_framework('tf.keras')
-custom_objects = sm.utils.get_custom_objects()
+custom_objects = {
+    **Unet().custom_objects,
+}
 
 # Load the model
 model = tf.keras.models.load_model("my_model.h5", custom_objects=custom_objects, compile=False)

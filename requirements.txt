@@ -1,8 +1,14 @@
+# Required for Streamlit chart rendering
+altair==4.2.2
+
+# Main packages
 streamlit==1.19.0
 numpy
-opencv-python-headless
+opencv-python-headless  # use headless version for cloud
 matplotlib
 Pillow
+
+# Matching your training environment
 tensorflow==2.8.4
 keras==2.8.0
 segmentation-models==1.0.1

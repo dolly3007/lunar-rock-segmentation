@@ -1,11 +1,7 @@
-altair==4.2.2
 streamlit==1.35.0
 opencv-python-headless==4.9.0.80
 tensorflow==2.10.1
 keras==2.10.0
 segmentation-models==1.0.1
-git+https://github.com/qubvel/classification_models.git
 numpy==1.23.5
 Pillow==10.3.0
-
-

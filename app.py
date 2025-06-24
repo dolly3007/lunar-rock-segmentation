@@ -2,30 +2,21 @@ import streamlit as st
 import numpy as np
 import cv2
 import tensorflow as tf
-
-# Important for loading a custom-trained model
-custom_objects = Unet().custom_objects
 import os
+
+# Set the segmentation models framework
 os.environ["SM_FRAMEWORK"] = "tf.keras"
 import segmentation_models as sm
-sm.set_framework("tf.keras")
+from segmentation_models import Unet  # ✅ Import before using
 
-from segmentation_models import Unet
+# Set the backend framework and get custom objects for model loading
+sm.set_framework("tf.keras")
+custom_objects = sm.get_custom_objects()  # ✅ Use this instead of Unet().custom_objects
+
+# Load the trained model
 model = tf.keras.models.load_model("my_model.h5", custom_objects=custom_objects, compile=False)
 
-# ✅ Make sure framework is correctly set
-# sm.set_framework('tf.keras')
-# sm.framework()
-
-# custom_objects = {
-#     'iou_score': sm.metrics.IOUScore(threshold=0.5),
-#     'categorical_crossentropy': tf.keras.losses.CategoricalCrossentropy()
-# }
-
-# ✅ Load model
-# model = tf.keras.models.load_model("my_model.h5", custom_objects=custom_objects, compile=False)
-
-# ✅ Constants
+# Constants
 H, W = 480, 480
 CLASS_COLORS = np.array([
     [0, 0, 0],      # Background
@@ -34,13 +25,13 @@ CLASS_COLORS = np.array([
     [0, 0, 255]     # Class 3
 ], dtype=np.uint8)
 
-# ✅ Image preprocessing
+# Image preprocessing
 def preprocess_image(image):
     image = cv2.resize(image, (W, H))
     image = image / 255.0
     return image.astype(np.float32)
 
-# ✅ Prediction
+# Prediction
 def predict_mask(image):
     input_img = preprocess_image(image)
     input_img = np.expand_dims(input_img, axis=0)
@@ -48,7 +39,7 @@ def predict_mask(image):
     pred_mask = np.argmax(pred, axis=-1).astype(np.uint8)
     return CLASS_COLORS[pred_mask]
 
-# ✅ Streamlit app
+# Streamlit UI
 st.title("Lunar Rock Segmentation")
 uploaded = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 

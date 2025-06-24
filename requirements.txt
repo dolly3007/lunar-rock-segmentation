@@ -2,5 +2,5 @@ tensorflow==2.18.0
 streamlit==1.35.0
 opencv-python-headless==4.9.0.80
 git+https://github.com/qubvel/segmentation_models.git
-numpy>=1.26.5
+numpy>=1.26.4
 Pillow==10.3.0

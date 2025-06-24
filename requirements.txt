@@ -4,7 +4,7 @@ protobuf==3.19.6
 numpy==1.23.5
 keras==2.10.0
 opencv-python-headless==4.9.0.80
-efficientnet
-segmentation-models
-classification-models==0.1  # or remove if not needed
+segmentation-models==0.2.1
+classification-models==0.2.0
+efficientnet==1.0.0
 altair==4.2.2

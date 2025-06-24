@@ -1,9 +1,9 @@
-streamlit==1.25.0
-numpy==1.23.5
+streamlit==1.19.0
 tensorflow==2.10.1
+protobuf==3.19.6
+numpy==1.23.5
 keras==2.10.0
 opencv-python-headless==4.9.0.80
 segmentation-models==1.0.1
 efficientnet==1.1.1
-classification-models==0.1
-protobuf==3.19.6
+classification-models==0.1  # or remove if not needed

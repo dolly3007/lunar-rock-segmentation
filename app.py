@@ -8,7 +8,6 @@ import segmentation_models as sm
 sm.set_framework('tf.keras')
 sm.framework()
 
-# ✅ Define custom objects for loading the model
 custom_objects = {
     'iou_score': sm.metrics.IOUScore(threshold=0.5),
     'categorical_crossentropy': tf.keras.losses.CategoricalCrossentropy()

@@ -1,15 +1,15 @@
-# Required for Streamlit chart rendering
+streamlit==1.19.0
 altair==4.2.2
 
-# Main packages
-streamlit==1.19.0
-numpy
-opencv-python-headless  # use headless version for cloud
-matplotlib
-Pillow
-
-# Matching your training environment
+# Compatibility stack
 tensorflow==2.8.4
 keras==2.8.0
 segmentation-models==1.0.1
-git+https://github.com/qubvel/classification_models.git
+classification-models @ git+https://github.com/qubvel/classification_models.git
+
+# Essential dependencies
+opencv-python-headless==4.7.0.72
+numpy==1.22.4
+ml-dtypes==0.1.0
+Pillow
+matplotlib

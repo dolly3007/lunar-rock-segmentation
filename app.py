@@ -1,20 +1,29 @@
 import streamlit as st
 import numpy as np
 import cv2
+import os
 import tensorflow as tf
 import segmentation_models as sm
+import keras
 
-# ✅ Make sure framework is correctly set
+# Set framework to match training environment
+os.environ["SM_FRAMEWORK"] = "tf.keras"
 sm.set_framework('tf.keras')
-sm.framework()
+custom_objects = sm.utils.get_custom_objects()
 
-custom_objects = {
-    'iou_score': sm.metrics.IOUScore(threshold=0.5),
-    'categorical_crossentropy': tf.keras.losses.CategoricalCrossentropy()
-}
+# Load the model
+model = tf.keras.models.load_model("my_model.h5", custom_objects=custom_objects, compile=False)
+# ✅ Make sure framework is correctly set
+# sm.set_framework('tf.keras')
+# sm.framework()
+
+# custom_objects = {
+#     'iou_score': sm.metrics.IOUScore(threshold=0.5),
+#     'categorical_crossentropy': tf.keras.losses.CategoricalCrossentropy()
+# }
 
 # ✅ Load model
-model = tf.keras.models.load_model("my_model.h5", custom_objects=custom_objects, compile=False)
+# model = tf.keras.models.load_model("my_model.h5", custom_objects=custom_objects, compile=False)
 
 # ✅ Constants
 H, W = 480, 480

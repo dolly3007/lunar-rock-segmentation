@@ -7,3 +7,4 @@ tensorflow==2.8.4
 keras==2.8.0
 segmentation-models==1.0.1
 git+https://github.com/qubvel/classification_models.git
+altair==4.2.2

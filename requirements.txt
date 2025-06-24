@@ -1,9 +1,9 @@
-streamlit==1.35.0
-numpy
-opencv-python
-matplotlib
-Pillow
+streamlit==1.20.0
+numpy==1.22.4
+opencv-python-headless
+matplotlib==3.5.3
+Pillow==9.1.1
 tensorflow==2.8.4
-segmentation-models==1.0.1
 keras==2.8.0
-classification-models==0.2.0
+segmentation-models==1.0.1
+git+https://github.com/qubvel/classification_models.git@0.2.0

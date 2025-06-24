@@ -7,8 +7,8 @@ import tensorflow as tf
 
 # Important for loading a custom-trained model
 custom_objects = Unet().custom_objects
-# Set framework to match training environment
 os.environ["SM_FRAMEWORK"] = "tf.keras"
+import segmentation_models as sm
 sm.set_framework('tf.keras')
 model = tf.keras.models.load_model("my_model.h5", custom_objects=custom_objects, compile=False)
 

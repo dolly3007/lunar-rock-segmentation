@@ -1,19 +1,17 @@
 import streamlit as st
 import numpy as np
 import cv2
-import os
-from segmentation_models import Unet
 import tensorflow as tf
 
 # Important for loading a custom-trained model
 custom_objects = Unet().custom_objects
+import os
 os.environ["SM_FRAMEWORK"] = "tf.keras"
 import segmentation_models as sm
-sm.set_framework('tf.keras')
+sm.set_framework("tf.keras")
+
+from segmentation_models import Unet
 model = tf.keras.models.load_model("my_model.h5", custom_objects=custom_objects, compile=False)
-
-
-
 
 # ✅ Make sure framework is correctly set
 # sm.set_framework('tf.keras')

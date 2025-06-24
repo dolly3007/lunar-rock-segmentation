@@ -7,3 +7,4 @@ opencv-python-headless==4.9.0.80
 efficientnet
 segmentation-models
 classification-models==0.1  # or remove if not needed
+altair==4.2.2
